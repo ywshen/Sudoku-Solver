@@ -14,6 +14,22 @@ public class solver {
 					    {1,2,0,0,0,7,4,0,0},
 					    {0,4,9,2,0,6,0,0,7}
 						};
+		PrintBoard(board);
+	}
+	
+	public static void PrintBoard(int board[][]) {
+		for (int i=0; i<board.length; i++) {
+			if (i%3==0 && i!=0) {			
+				System.out.println("- - - - - - - - - - - - - ");
+			}
+			for (int j=0; j<board[i].length; j++) {
+				if (j%3==0 && j!=0) {
+					System.out.print(" | ");
+				}
+				System.out.print(board[i][j] + " ");
+			}
+			System.out.println("");
+		}
 	}
 
 }
