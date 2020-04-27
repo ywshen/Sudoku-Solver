@@ -31,5 +31,17 @@ public class solver {
 			System.out.println("");
 		}
 	}
+	
+	public static int[] findBlank(int board[][]) {
+		int blank[] = new int[2];
+		for (int i=0; i<board.length; i++) {
+			for (int j=0; j<board[i].length; j++) {
+				blank[0] = i;
+				blank[1] = j;
+				return blank;
+			}
+		}
+		return null;
+	}
 
 }
