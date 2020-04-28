@@ -17,6 +17,21 @@ public class solver {
 		PrintBoard(board);
 	}
 	
+	public static boolean valid(int board[][], int num, int[] pos) {
+		//Check rows
+		for (int i=0; i<board[0].length; i++) {
+			if (board[pos[0]][i]==num && pos[1]!=i) {
+				return false;
+			}
+		}
+		for (int i=0; i<board.length; i++) {
+			if(board[i][pos[0]]==num && pos[0]!=i) {
+				return false;
+			}
+		}
+		return true;
+	}
+	
 	public static void PrintBoard(int board[][]) {
 		for (int i=0; i<board.length; i++) {
 			if (i%3==0 && i!=0) {			
