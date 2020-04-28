@@ -29,6 +29,16 @@ public class solver {
 				return false;
 			}
 		}
+		int box_x = (int)(pos[1]/3);
+		int box_y = (int)(pos[0]/3);
+		
+		for (int i=box_y*3; i<box_y*3+3; i++ ) {
+			for (int j=box_x*3; j<box_x*3+3; j++) {
+				if (board[i][j] == num && i!=pos[0] && j!=pos[1]) {
+					return false;
+				}
+			}
+		}
 		return true;
 	}
 	
