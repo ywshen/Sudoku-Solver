@@ -6,91 +6,102 @@ import javax.swing.JFrame;
 import java.awt.GridLayout;
 import javax.swing.JTextField;
 import javax.swing.JFormattedTextField;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import javax.swing.JLabel;
+import javax.swing.JButton;
+import javax.swing.SwingConstants;
+import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.Panel;
+import java.awt.BorderLayout;
 
 public class SudokuBoard {
 
 	private JFrame frame;
-	private JFormattedTextField formattedTextField;
-	private JFormattedTextField formattedTextField_1;
-	private JFormattedTextField formattedTextField_2;
-	private JFormattedTextField formattedTextField_3;
-	private JFormattedTextField formattedTextField_4;
-	private JFormattedTextField formattedTextField_5;
-	private JFormattedTextField formattedTextField_6;
-	private JFormattedTextField formattedTextField_7;
-	private JFormattedTextField formattedTextField_8;
-	private JFormattedTextField formattedTextField_9;
-	private JFormattedTextField formattedTextField_10;
-	private JFormattedTextField formattedTextField_11;
-	private JFormattedTextField formattedTextField_12;
-	private JFormattedTextField formattedTextField_13;
-	private JFormattedTextField formattedTextField_14;
-	private JFormattedTextField formattedTextField_15;
-	private JFormattedTextField formattedTextField_16;
-	private JFormattedTextField formattedTextField_17;
-	private JFormattedTextField formattedTextField_18;
-	private JFormattedTextField formattedTextField_19;
-	private JFormattedTextField formattedTextField_20;
-	private JFormattedTextField formattedTextField_21;
-	private JFormattedTextField formattedTextField_22;
-	private JFormattedTextField formattedTextField_23;
-	private JFormattedTextField formattedTextField_24;
-	private JFormattedTextField formattedTextField_25;
-	private JFormattedTextField formattedTextField_26;
-	private JFormattedTextField formattedTextField_27;
-	private JFormattedTextField formattedTextField_28;
-	private JFormattedTextField formattedTextField_29;
-	private JFormattedTextField formattedTextField_30;
-	private JFormattedTextField formattedTextField_31;
-	private JFormattedTextField formattedTextField_32;
-	private JFormattedTextField formattedTextField_33;
-	private JFormattedTextField formattedTextField_34;
-	private JFormattedTextField formattedTextField_35;
-	private JFormattedTextField formattedTextField_36;
-	private JFormattedTextField formattedTextField_37;
-	private JFormattedTextField formattedTextField_38;
-	private JFormattedTextField formattedTextField_39;
-	private JFormattedTextField formattedTextField_40;
-	private JFormattedTextField formattedTextField_41;
-	private JFormattedTextField formattedTextField_42;
-	private JFormattedTextField formattedTextField_43;
-	private JFormattedTextField formattedTextField_44;
-	private JFormattedTextField formattedTextField_45;
-	private JFormattedTextField formattedTextField_46;
-	private JFormattedTextField formattedTextField_47;
-	private JFormattedTextField formattedTextField_48;
-	private JFormattedTextField formattedTextField_49;
-	private JFormattedTextField formattedTextField_50;
-	private JFormattedTextField formattedTextField_51;
-	private JFormattedTextField formattedTextField_52;
-	private JFormattedTextField formattedTextField_53;
-	private JFormattedTextField formattedTextField_54;
-	private JFormattedTextField formattedTextField_55;
-	private JFormattedTextField formattedTextField_56;
-	private JFormattedTextField formattedTextField_57;
-	private JFormattedTextField formattedTextField_58;
-	private JFormattedTextField formattedTextField_59;
-	private JFormattedTextField formattedTextField_60;
-	private JFormattedTextField formattedTextField_61;
-	private JFormattedTextField formattedTextField_62;
-	private JFormattedTextField formattedTextField_63;
-	private JFormattedTextField formattedTextField_64;
-	private JFormattedTextField formattedTextField_65;
-	private JFormattedTextField formattedTextField_66;
-	private JFormattedTextField formattedTextField_67;
-	private JFormattedTextField formattedTextField_68;
-	private JFormattedTextField formattedTextField_69;
-	private JFormattedTextField formattedTextField_70;
-	private JFormattedTextField formattedTextField_71;
-	private JFormattedTextField formattedTextField_72;
-	private JFormattedTextField formattedTextField_73;
-	private JFormattedTextField formattedTextField_74;
-	private JFormattedTextField formattedTextField_75;
-	private JFormattedTextField formattedTextField_76;
-	private JFormattedTextField formattedTextField_77;
-	private JFormattedTextField formattedTextField_78;
-	private JFormattedTextField formattedTextField_79;
-	private JFormattedTextField formattedTextField_80;
+	private Panel panel;
+	private Panel panel_1;
+	private JFormattedTextField Cell_0_0;
+	private JFormattedTextField Cell_0_1;
+	private JFormattedTextField Cell_0_2;
+	private JFormattedTextField Cell_0_3;
+	private JFormattedTextField Cell_0_4;
+	private JFormattedTextField Cell_0_5;
+	private JFormattedTextField Cell_0_6;
+	private JFormattedTextField Cell_0_7;
+	private JFormattedTextField Cell_0_8;
+	private JFormattedTextField Cell_1_0;
+	private JFormattedTextField Cell_1_1;
+	private JFormattedTextField Cell_1_2;
+	private JFormattedTextField Cell_1_3;
+	private JFormattedTextField Cell_1_4;
+	private JFormattedTextField Cell_1_5;
+	private JFormattedTextField Cell_1_6;
+	private JFormattedTextField Cell_1_7;
+	private JFormattedTextField Cell_1_8;
+	private JFormattedTextField Cell_2_0;
+	private JFormattedTextField Cell_2_1;
+	private JFormattedTextField Cell_2_2;
+	private JFormattedTextField Cell_2_3;
+	private JFormattedTextField Cell_2_4;
+	private JFormattedTextField Cell_2_5;
+	private JFormattedTextField Cell_2_6;
+	private JFormattedTextField Cell_2_7;
+	private JFormattedTextField Cell_2_8;
+	private JFormattedTextField Cell_3_0;
+	private JFormattedTextField Cell_3_1;
+	private JFormattedTextField Cell_3_2;
+	private JFormattedTextField Cell_3_3;
+	private JFormattedTextField Cell_3_4;
+	private JFormattedTextField Cell_3_5;
+	private JFormattedTextField Cell_3_6;
+	private JFormattedTextField Cell_3_7;
+	private JFormattedTextField Cell_3_8;
+	private JFormattedTextField Cell_4_0;
+	private JFormattedTextField Cell_4_1;
+	private JFormattedTextField Cell_4_2;
+	private JFormattedTextField Cell_4_3;
+	private JFormattedTextField Cell_4_4;
+	private JFormattedTextField Cell_4_5;
+	private JFormattedTextField Cell_4_6;
+	private JFormattedTextField Cell_4_7;
+	private JFormattedTextField Cell_4_8;
+	private JFormattedTextField Cell_5_0;
+	private JFormattedTextField Cell_5_1;
+	private JFormattedTextField Cell_5_2;
+	private JFormattedTextField Cell_5_3;
+	private JFormattedTextField Cell_5_4;
+	private JFormattedTextField Cell_5_5;
+	private JFormattedTextField Cell_5_6;
+	private JFormattedTextField Cell_5_7;
+	private JFormattedTextField Cell_5_8;
+	private JFormattedTextField Cell_6_0;
+	private JFormattedTextField Cell_6_1;
+	private JFormattedTextField Cell_6_2;
+	private JFormattedTextField Cell_6_3;
+	private JFormattedTextField Cell_6_4;
+	private JFormattedTextField Cell_6_5;
+	private JFormattedTextField Cell_6_6;
+	private JFormattedTextField Cell_6_7;
+	private JFormattedTextField Cell_6_8;
+	private JFormattedTextField Cell_7_0;
+	private JFormattedTextField Cell_7_1;
+	private JFormattedTextField Cell_7_2;
+	private JFormattedTextField Cell_7_3;
+	private JFormattedTextField Cell_7_4;
+	private JFormattedTextField Cell_7_5;
+	private JFormattedTextField Cell_7_6;
+	private JFormattedTextField Cell_7_7;
+	private JFormattedTextField Cell_7_8;
+	private JFormattedTextField Cell_8_0;
+	private JFormattedTextField Cell_8_1;
+	private JFormattedTextField Cell_8_2;
+	private JFormattedTextField Cell_8_3;
+	private JFormattedTextField Cell_8_4;
+	private JFormattedTextField Cell_8_5;
+	private JFormattedTextField Cell_8_6;
+	private JFormattedTextField Cell_8_7;
+	private JFormattedTextField Cell_8_8;
 
 	/**
 	 * Launch the application.
@@ -120,252 +131,269 @@ public class SudokuBoard {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 630, 630);
+		frame.setResizable(false);
+		frame.getContentPane().setSize(new Dimension(630, 700));
+		frame.getContentPane().setPreferredSize(new Dimension(630, 700));
+		frame.setBounds(100, 100, 630, 750);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(new GridLayout(0, 9, 0, 0));
+		frame.getContentPane().setLayout(new BorderLayout(0, 0));
 		
-		formattedTextField = new JFormattedTextField();
-		frame.getContentPane().add(formattedTextField);
+		panel_1 = new Panel();
+		panel_1.setSize(new Dimension(630, 630));
+		frame.getContentPane().add(panel_1);
+		panel_1.setLayout(new GridLayout(0, 9, 0, 0));
 		
-		formattedTextField_1 = new JFormattedTextField();
-		frame.getContentPane().add(formattedTextField_1);
+		Cell_0_0 = new JFormattedTextField();
+		panel_1.add(Cell_0_0);
+		Cell_0_0.setValue(1);
 		
-		formattedTextField_2 = new JFormattedTextField();
-		frame.getContentPane().add(formattedTextField_2);
+		Cell_0_1 = new JFormattedTextField();
+		panel_1.add(Cell_0_1);
 		
-		formattedTextField_3 = new JFormattedTextField();
-		frame.getContentPane().add(formattedTextField_3);
+		Cell_0_2 = new JFormattedTextField();
+		panel_1.add(Cell_0_2);
 		
-		formattedTextField_5 = new JFormattedTextField();
-		frame.getContentPane().add(formattedTextField_5);
+		Cell_0_3 = new JFormattedTextField();
+		panel_1.add(Cell_0_3);
 		
-		formattedTextField_4 = new JFormattedTextField();
-		frame.getContentPane().add(formattedTextField_4);
+		Cell_0_4 = new JFormattedTextField();
+		panel_1.add(Cell_0_4);
 		
-		formattedTextField_6 = new JFormattedTextField();
-		frame.getContentPane().add(formattedTextField_6);
+		Cell_0_5 = new JFormattedTextField();
+		panel_1.add(Cell_0_5);
 		
-		formattedTextField_7 = new JFormattedTextField();
-		frame.getContentPane().add(formattedTextField_7);
+		Cell_0_6 = new JFormattedTextField();
+		panel_1.add(Cell_0_6);
 		
-		formattedTextField_8 = new JFormattedTextField();
-		frame.getContentPane().add(formattedTextField_8);
+		Cell_0_7 = new JFormattedTextField();
+		panel_1.add(Cell_0_7);
 		
-		formattedTextField_9 = new JFormattedTextField();
-		frame.getContentPane().add(formattedTextField_9);
+		Cell_0_8 = new JFormattedTextField();
+		panel_1.add(Cell_0_8);
 		
-		formattedTextField_10 = new JFormattedTextField();
-		frame.getContentPane().add(formattedTextField_10);
+		Cell_1_0 = new JFormattedTextField();
+		panel_1.add(Cell_1_0);
 		
-		formattedTextField_11 = new JFormattedTextField();
-		frame.getContentPane().add(formattedTextField_11);
+		Cell_1_1 = new JFormattedTextField();
+		panel_1.add(Cell_1_1);
 		
-		formattedTextField_12 = new JFormattedTextField();
-		frame.getContentPane().add(formattedTextField_12);
+		Cell_1_2 = new JFormattedTextField();
+		panel_1.add(Cell_1_2);
 		
-		formattedTextField_13 = new JFormattedTextField();
-		frame.getContentPane().add(formattedTextField_13);
+		Cell_1_3 = new JFormattedTextField();
+		panel_1.add(Cell_1_3);
 		
-		formattedTextField_14 = new JFormattedTextField();
-		frame.getContentPane().add(formattedTextField_14);
+		Cell_1_4 = new JFormattedTextField();
+		panel_1.add(Cell_1_4);
 		
-		formattedTextField_15 = new JFormattedTextField();
-		frame.getContentPane().add(formattedTextField_15);
+		Cell_1_5 = new JFormattedTextField();
+		panel_1.add(Cell_1_5);
 		
-		formattedTextField_16 = new JFormattedTextField();
-		frame.getContentPane().add(formattedTextField_16);
+		Cell_1_6 = new JFormattedTextField();
+		panel_1.add(Cell_1_6);
 		
-		formattedTextField_17 = new JFormattedTextField();
-		frame.getContentPane().add(formattedTextField_17);
+		Cell_1_7 = new JFormattedTextField();
+		panel_1.add(Cell_1_7);
 		
-		formattedTextField_18 = new JFormattedTextField();
-		frame.getContentPane().add(formattedTextField_18);
+		Cell_1_8 = new JFormattedTextField();
+		panel_1.add(Cell_1_8);
 		
-		formattedTextField_19 = new JFormattedTextField();
-		frame.getContentPane().add(formattedTextField_19);
+		Cell_2_0 = new JFormattedTextField();
+		panel_1.add(Cell_2_0);
 		
-		formattedTextField_20 = new JFormattedTextField();
-		frame.getContentPane().add(formattedTextField_20);
+		Cell_2_1 = new JFormattedTextField();
+		panel_1.add(Cell_2_1);
 		
-		formattedTextField_21 = new JFormattedTextField();
-		frame.getContentPane().add(formattedTextField_21);
+		Cell_2_2 = new JFormattedTextField();
+		panel_1.add(Cell_2_2);
 		
-		formattedTextField_22 = new JFormattedTextField();
-		frame.getContentPane().add(formattedTextField_22);
+		Cell_2_3 = new JFormattedTextField();
+		panel_1.add(Cell_2_3);
 		
-		formattedTextField_23 = new JFormattedTextField();
-		frame.getContentPane().add(formattedTextField_23);
+		Cell_2_4 = new JFormattedTextField();
+		panel_1.add(Cell_2_4);
 		
-		formattedTextField_24 = new JFormattedTextField();
-		frame.getContentPane().add(formattedTextField_24);
+		Cell_2_5 = new JFormattedTextField();
+		panel_1.add(Cell_2_5);
 		
-		formattedTextField_25 = new JFormattedTextField();
-		frame.getContentPane().add(formattedTextField_25);
+		Cell_2_6 = new JFormattedTextField();
+		panel_1.add(Cell_2_6);
 		
-		formattedTextField_26 = new JFormattedTextField();
-		frame.getContentPane().add(formattedTextField_26);
+		Cell_2_7 = new JFormattedTextField();
+		panel_1.add(Cell_2_7);
 		
-		formattedTextField_27 = new JFormattedTextField();
-		frame.getContentPane().add(formattedTextField_27);
+		Cell_2_8 = new JFormattedTextField();
+		panel_1.add(Cell_2_8);
 		
-		formattedTextField_28 = new JFormattedTextField();
-		frame.getContentPane().add(formattedTextField_28);
+		Cell_3_0 = new JFormattedTextField();
+		panel_1.add(Cell_3_0);
 		
-		formattedTextField_29 = new JFormattedTextField();
-		frame.getContentPane().add(formattedTextField_29);
+		Cell_3_1 = new JFormattedTextField();
+		panel_1.add(Cell_3_1);
 		
-		formattedTextField_30 = new JFormattedTextField();
-		frame.getContentPane().add(formattedTextField_30);
+		Cell_3_2 = new JFormattedTextField();
+		panel_1.add(Cell_3_2);
 		
-		formattedTextField_31 = new JFormattedTextField();
-		frame.getContentPane().add(formattedTextField_31);
+		Cell_3_3 = new JFormattedTextField();
+		panel_1.add(Cell_3_3);
 		
-		formattedTextField_32 = new JFormattedTextField();
-		frame.getContentPane().add(formattedTextField_32);
+		Cell_3_4 = new JFormattedTextField();
+		panel_1.add(Cell_3_4);
 		
-		formattedTextField_33 = new JFormattedTextField();
-		frame.getContentPane().add(formattedTextField_33);
+		Cell_3_5 = new JFormattedTextField();
+		panel_1.add(Cell_3_5);
 		
-		formattedTextField_34 = new JFormattedTextField();
-		frame.getContentPane().add(formattedTextField_34);
+		Cell_3_6 = new JFormattedTextField();
+		panel_1.add(Cell_3_6);
 		
-		formattedTextField_35 = new JFormattedTextField();
-		frame.getContentPane().add(formattedTextField_35);
+		Cell_3_7 = new JFormattedTextField();
+		panel_1.add(Cell_3_7);
 		
-		formattedTextField_36 = new JFormattedTextField();
-		frame.getContentPane().add(formattedTextField_36);
+		Cell_3_8 = new JFormattedTextField();
+		panel_1.add(Cell_3_8);
 		
-		formattedTextField_37 = new JFormattedTextField();
-		frame.getContentPane().add(formattedTextField_37);
+		Cell_4_0 = new JFormattedTextField();
+		panel_1.add(Cell_4_0);
 		
-		formattedTextField_38 = new JFormattedTextField();
-		frame.getContentPane().add(formattedTextField_38);
+		Cell_4_1 = new JFormattedTextField();
+		panel_1.add(Cell_4_1);
 		
-		formattedTextField_39 = new JFormattedTextField();
-		frame.getContentPane().add(formattedTextField_39);
+		Cell_4_2 = new JFormattedTextField();
+		panel_1.add(Cell_4_2);
 		
-		formattedTextField_40 = new JFormattedTextField();
-		frame.getContentPane().add(formattedTextField_40);
+		Cell_4_3 = new JFormattedTextField();
+		panel_1.add(Cell_4_3);
 		
-		formattedTextField_41 = new JFormattedTextField();
-		frame.getContentPane().add(formattedTextField_41);
+		Cell_4_4 = new JFormattedTextField();
+		panel_1.add(Cell_4_4);
 		
-		formattedTextField_42 = new JFormattedTextField();
-		frame.getContentPane().add(formattedTextField_42);
+		Cell_4_5 = new JFormattedTextField();
+		panel_1.add(Cell_4_5);
 		
-		formattedTextField_43 = new JFormattedTextField();
-		frame.getContentPane().add(formattedTextField_43);
+		Cell_4_6 = new JFormattedTextField();
+		panel_1.add(Cell_4_6);
 		
-		formattedTextField_44 = new JFormattedTextField();
-		frame.getContentPane().add(formattedTextField_44);
+		Cell_4_7 = new JFormattedTextField();
+		panel_1.add(Cell_4_7);
 		
-		formattedTextField_45 = new JFormattedTextField();
-		frame.getContentPane().add(formattedTextField_45);
+		Cell_4_8 = new JFormattedTextField();
+		panel_1.add(Cell_4_8);
 		
-		formattedTextField_46 = new JFormattedTextField();
-		frame.getContentPane().add(formattedTextField_46);
+		Cell_5_0 = new JFormattedTextField();
+		panel_1.add(Cell_5_0);
 		
-		formattedTextField_47 = new JFormattedTextField();
-		frame.getContentPane().add(formattedTextField_47);
+		Cell_5_1 = new JFormattedTextField();
+		panel_1.add(Cell_5_1);
 		
-		formattedTextField_48 = new JFormattedTextField();
-		frame.getContentPane().add(formattedTextField_48);
+		Cell_5_2 = new JFormattedTextField();
+		panel_1.add(Cell_5_2);
 		
-		formattedTextField_49 = new JFormattedTextField();
-		frame.getContentPane().add(formattedTextField_49);
+		Cell_5_3 = new JFormattedTextField();
+		panel_1.add(Cell_5_3);
 		
-		formattedTextField_50 = new JFormattedTextField();
-		frame.getContentPane().add(formattedTextField_50);
+		Cell_5_4 = new JFormattedTextField();
+		panel_1.add(Cell_5_4);
 		
-		formattedTextField_51 = new JFormattedTextField();
-		frame.getContentPane().add(formattedTextField_51);
+		Cell_5_5 = new JFormattedTextField();
+		panel_1.add(Cell_5_5);
 		
-		formattedTextField_52 = new JFormattedTextField();
-		frame.getContentPane().add(formattedTextField_52);
+		Cell_5_6 = new JFormattedTextField();
+		panel_1.add(Cell_5_6);
 		
-		formattedTextField_53 = new JFormattedTextField();
-		frame.getContentPane().add(formattedTextField_53);
+		Cell_5_7 = new JFormattedTextField();
+		panel_1.add(Cell_5_7);
 		
-		formattedTextField_54 = new JFormattedTextField();
-		frame.getContentPane().add(formattedTextField_54);
+		Cell_5_8 = new JFormattedTextField();
+		panel_1.add(Cell_5_8);
 		
-		formattedTextField_55 = new JFormattedTextField();
-		frame.getContentPane().add(formattedTextField_55);
+		Cell_6_0 = new JFormattedTextField();
+		panel_1.add(Cell_6_0);
 		
-		formattedTextField_56 = new JFormattedTextField();
-		frame.getContentPane().add(formattedTextField_56);
+		Cell_6_1 = new JFormattedTextField();
+		panel_1.add(Cell_6_1);
 		
-		formattedTextField_57 = new JFormattedTextField();
-		frame.getContentPane().add(formattedTextField_57);
+		Cell_6_2 = new JFormattedTextField();
+		panel_1.add(Cell_6_2);
 		
-		formattedTextField_58 = new JFormattedTextField();
-		frame.getContentPane().add(formattedTextField_58);
+		Cell_6_3 = new JFormattedTextField();
+		panel_1.add(Cell_6_3);
 		
-		formattedTextField_59 = new JFormattedTextField();
-		frame.getContentPane().add(formattedTextField_59);
+		Cell_6_4 = new JFormattedTextField();
+		panel_1.add(Cell_6_4);
 		
-		formattedTextField_60 = new JFormattedTextField();
-		frame.getContentPane().add(formattedTextField_60);
+		Cell_6_5 = new JFormattedTextField();
+		panel_1.add(Cell_6_5);
 		
-		formattedTextField_61 = new JFormattedTextField();
-		frame.getContentPane().add(formattedTextField_61);
+		Cell_6_6 = new JFormattedTextField();
+		panel_1.add(Cell_6_6);
 		
-		formattedTextField_62 = new JFormattedTextField();
-		frame.getContentPane().add(formattedTextField_62);
+		Cell_6_7 = new JFormattedTextField();
+		panel_1.add(Cell_6_7);
 		
-		formattedTextField_63 = new JFormattedTextField();
-		frame.getContentPane().add(formattedTextField_63);
+		Cell_6_8 = new JFormattedTextField();
+		panel_1.add(Cell_6_8);
 		
-		formattedTextField_64 = new JFormattedTextField();
-		frame.getContentPane().add(formattedTextField_64);
+		Cell_7_0 = new JFormattedTextField();
+		panel_1.add(Cell_7_0);
 		
-		formattedTextField_65 = new JFormattedTextField();
-		frame.getContentPane().add(formattedTextField_65);
+		Cell_7_1 = new JFormattedTextField();
+		panel_1.add(Cell_7_1);
 		
-		formattedTextField_66 = new JFormattedTextField();
-		frame.getContentPane().add(formattedTextField_66);
+		Cell_7_2 = new JFormattedTextField();
+		panel_1.add(Cell_7_2);
 		
-		formattedTextField_67 = new JFormattedTextField();
-		frame.getContentPane().add(formattedTextField_67);
+		Cell_7_3 = new JFormattedTextField();
+		panel_1.add(Cell_7_3);
 		
-		formattedTextField_68 = new JFormattedTextField();
-		frame.getContentPane().add(formattedTextField_68);
+		Cell_7_4 = new JFormattedTextField();
+		panel_1.add(Cell_7_4);
 		
-		formattedTextField_69 = new JFormattedTextField();
-		frame.getContentPane().add(formattedTextField_69);
+		Cell_7_5 = new JFormattedTextField();
+		panel_1.add(Cell_7_5);
 		
-		formattedTextField_70 = new JFormattedTextField();
-		frame.getContentPane().add(formattedTextField_70);
+		Cell_7_6 = new JFormattedTextField();
+		panel_1.add(Cell_7_6);
 		
-		formattedTextField_71 = new JFormattedTextField();
-		frame.getContentPane().add(formattedTextField_71);
+		Cell_7_7 = new JFormattedTextField();
+		panel_1.add(Cell_7_7);
 		
-		formattedTextField_72 = new JFormattedTextField();
-		frame.getContentPane().add(formattedTextField_72);
+		Cell_7_8 = new JFormattedTextField();
+		panel_1.add(Cell_7_8);
 		
-		formattedTextField_73 = new JFormattedTextField();
-		frame.getContentPane().add(formattedTextField_73);
+		Cell_8_0 = new JFormattedTextField();
+		panel_1.add(Cell_8_0);
 		
-		formattedTextField_74 = new JFormattedTextField();
-		frame.getContentPane().add(formattedTextField_74);
+		Cell_8_1 = new JFormattedTextField();
+		panel_1.add(Cell_8_1);
 		
-		formattedTextField_75 = new JFormattedTextField();
-		frame.getContentPane().add(formattedTextField_75);
+		Cell_8_2 = new JFormattedTextField();
+		panel_1.add(Cell_8_2);
 		
-		formattedTextField_76 = new JFormattedTextField();
-		frame.getContentPane().add(formattedTextField_76);
+		Cell_8_3 = new JFormattedTextField();
+		panel_1.add(Cell_8_3);
 		
-		formattedTextField_77 = new JFormattedTextField();
-		frame.getContentPane().add(formattedTextField_77);
+		Cell_8_4 = new JFormattedTextField();
+		panel_1.add(Cell_8_4);
 		
-		formattedTextField_78 = new JFormattedTextField();
-		frame.getContentPane().add(formattedTextField_78);
+		Cell_8_5 = new JFormattedTextField();
+		panel_1.add(Cell_8_5);
 		
-		formattedTextField_79 = new JFormattedTextField();
-		frame.getContentPane().add(formattedTextField_79);
+		Cell_8_6 = new JFormattedTextField();
+		panel_1.add(Cell_8_6);
 		
-		formattedTextField_80 = new JFormattedTextField();
-		frame.getContentPane().add(formattedTextField_80);
+		Cell_8_7 = new JFormattedTextField();
+		panel_1.add(Cell_8_7);
+		
+		Cell_8_8 = new JFormattedTextField();
+		panel_1.add(Cell_8_8);
+		
+		panel = new Panel();
+		frame.getContentPane().add(panel);
+		panel.setLayout(null);
+		
+		JButton btnNewButton = new JButton("Solve");
+		btnNewButton.setBounds(212, 648, 204, 62);
+		
+		panel.add(btnNewButton);
 	}
-
 }
