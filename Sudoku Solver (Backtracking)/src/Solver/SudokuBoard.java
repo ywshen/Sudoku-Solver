@@ -12,16 +12,21 @@ import java.awt.event.KeyEvent;
 import javax.swing.JLabel;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
+import javax.swing.border.Border;
+
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Panel;
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
+import javax.swing.BorderFactory;
+import javax.swing.JSeparator;
 
 public class SudokuBoard {
 	
@@ -888,6 +893,40 @@ public class SudokuBoard {
 			for(int j=0; j<9; j++) {
 				field[i][j].setHorizontalAlignment(JFormattedTextField.CENTER);
 				field[i][j].setFont(field[i][j].getFont().deriveFont(Font.BOLD, 20f));
+				field[i][j].setBorder(BorderFactory.createMatteBorder(
+		                1, 1, 1, 1, Color.BLACK));
+				if (j==2) {
+					field[i][j].setBorder(BorderFactory.createMatteBorder(
+			                1, 1, 1, 4, Color.BLACK));
+				}
+				if (i==2) {
+					field[i][j].setBorder(BorderFactory.createMatteBorder(
+			                1, 1, 4, 1, Color.BLACK));
+				}
+				if (i==2 && j==2) {
+					field[i][j].setBorder(BorderFactory.createMatteBorder(
+				                1, 1, 4, 4, Color.BLACK));
+				}
+				if (j==5) {
+					field[i][j].setBorder(BorderFactory.createMatteBorder(
+			                1, 1, 1, 4, Color.BLACK));
+				}
+				if (i==2 && j==5) {
+					field[i][j].setBorder(BorderFactory.createMatteBorder(
+				                1, 1, 4, 4, Color.BLACK));
+				}
+				if (i==5) {
+					field[i][j].setBorder(BorderFactory.createMatteBorder(
+			                1, 1, 4, 1, Color.BLACK));
+				}
+				if (i==5 && j==2) {
+					field[i][j].setBorder(BorderFactory.createMatteBorder(
+				                1, 1, 4, 4, Color.BLACK));
+				}
+				if (i==5 && j==5) {
+					field[i][j].setBorder(BorderFactory.createMatteBorder(
+				                1, 1, 4, 4, Color.BLACK));
+				}
 			}
 		}
 		
