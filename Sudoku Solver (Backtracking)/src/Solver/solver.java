@@ -16,12 +16,16 @@ public class solver {
 	
 	public static void main (String[] args) {
 		//int [] result = findBlank(board);
-		PrintBoard(board);
+		PrintBoard(SudokuBoard.board);
 		System.out.println("");
 		solve(board);
 		PrintBoard(board);
 		//System.out.println(result[0]);
 		//System.out.println(result[1]);
+	}
+	
+	public static int[][] getBoard() {
+		return board;
 	}
 	
 	public static boolean solve(int[][] board)
