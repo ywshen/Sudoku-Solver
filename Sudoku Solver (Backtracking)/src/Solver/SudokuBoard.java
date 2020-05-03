@@ -1,6 +1,7 @@
 package Solver;
 
 import java.awt.EventQueue;
+import java.awt.Font;
 
 import javax.swing.JFrame;
 import java.awt.GridLayout;
@@ -110,6 +111,7 @@ public class SudokuBoard {
 	private JFormattedTextField Cell_8_6;
 	private JFormattedTextField Cell_8_7;
 	private JFormattedTextField Cell_8_8;
+	private JFormattedTextField [][] field = new JFormattedTextField[9][9];
 	private final Action action = new SwingAction();
 
 	/**
@@ -143,7 +145,7 @@ public class SudokuBoard {
 		frame.setResizable(false);
 		frame.getContentPane().setSize(new Dimension(630, 700));
 		frame.getContentPane().setPreferredSize(new Dimension(630, 700));
-		frame.setBounds(100, 100, 630, 750);
+		frame.setBounds(100, 100, 640, 749);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(new BorderLayout(0, 0));
 		
@@ -800,6 +802,95 @@ public class SudokuBoard {
 		});
 		panel_1.add(Cell_8_8);
 		
+		field[0][0] = Cell_0_0;
+		field[0][1] = Cell_0_1;
+		field[0][2] = Cell_0_2;
+		field[0][3] = Cell_0_3;
+		field[0][4] = Cell_0_4;
+		field[0][5] = Cell_0_5;
+		field[0][6] = Cell_0_6;
+		field[0][7] = Cell_0_7;
+		field[0][8] = Cell_0_8;
+		field[1][0] = Cell_1_0;
+		field[1][1] = Cell_1_1;
+		field[1][2] = Cell_1_2;
+		field[1][3] = Cell_1_3;
+		field[1][4] = Cell_1_4;
+		field[1][5] = Cell_1_5;
+		field[1][6] = Cell_1_6;
+		field[1][7] = Cell_1_7;
+		field[1][8] = Cell_1_8;
+		field[2][0] = Cell_2_0;
+		field[2][1] = Cell_2_1;
+		field[2][2] = Cell_2_2;
+		field[2][3] = Cell_2_3;
+		field[2][4] = Cell_2_4;
+		field[2][5] = Cell_2_5;
+		field[2][6] = Cell_2_6;
+		field[2][7] = Cell_2_7;
+		field[2][8] = Cell_2_8;
+		field[3][0] = Cell_3_0;
+		field[3][1] = Cell_3_1;
+		field[3][2] = Cell_3_2;
+		field[3][3] = Cell_3_3;
+		field[3][4] = Cell_3_4;
+		field[3][5] = Cell_3_5;
+		field[3][6] = Cell_3_6;
+		field[3][7] = Cell_3_7;
+		field[3][8] = Cell_3_8;
+		field[4][0] = Cell_4_0;
+		field[4][1] = Cell_4_1;
+		field[4][2] = Cell_4_2;
+		field[4][3] = Cell_4_3;
+		field[4][4] = Cell_4_4;
+		field[4][5] = Cell_4_5;
+		field[4][6] = Cell_4_6;
+		field[4][7] = Cell_4_7;
+		field[4][8] = Cell_4_8;
+		field[5][0] = Cell_5_0;
+		field[5][1] = Cell_5_1;
+		field[5][2] = Cell_5_2;
+		field[5][3] = Cell_5_3;
+		field[5][4] = Cell_5_4;
+		field[5][5] = Cell_5_5;
+		field[5][6] = Cell_5_6;
+		field[5][7] = Cell_5_7;
+		field[5][8] = Cell_5_8;
+		field[6][0] = Cell_6_0;
+		field[6][1] = Cell_6_1;
+		field[6][2] = Cell_6_2;
+		field[6][3] = Cell_6_3;
+		field[6][4] = Cell_6_4;
+		field[6][5] = Cell_6_5;
+		field[6][6] = Cell_6_6;
+		field[6][7] = Cell_6_7;
+		field[6][8] = Cell_6_8;
+		field[7][0] = Cell_7_0;
+		field[7][1] = Cell_7_1;
+		field[7][2] = Cell_7_2;
+		field[7][3] = Cell_7_3;
+		field[7][4] = Cell_7_4;
+		field[7][5] = Cell_7_5;
+		field[7][6] = Cell_7_6;
+		field[7][7] = Cell_7_7;
+		field[7][8] = Cell_7_8;
+		field[8][0] = Cell_8_0;
+		field[8][1] = Cell_8_1;
+		field[8][2] = Cell_8_2;
+		field[8][3] = Cell_8_3;
+		field[8][4] = Cell_8_4;
+		field[8][5] = Cell_8_5;
+		field[8][6] = Cell_8_6;
+		field[8][7] = Cell_8_7;
+		field[8][8] = Cell_8_8;
+		
+		for (int i=0; i<9; i++) {
+			for(int j=0; j<9; j++) {
+				field[i][j].setHorizontalAlignment(JFormattedTextField.CENTER);
+				field[i][j].setFont(field[i][j].getFont().deriveFont(Font.BOLD, 20f));
+			}
+		}
+		
 		panel = new Panel();
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
@@ -810,7 +901,7 @@ public class SudokuBoard {
 			}
 		});
 		btnNewButton.setAction(action);
-		btnNewButton.setBounds(212, 648, 204, 62);
+		btnNewButton.setBounds(212, 647, 204, 62);
 		
 		panel.add(btnNewButton);
 	}
@@ -821,6 +912,12 @@ public class SudokuBoard {
 		}
 		public void actionPerformed(ActionEvent e) {
 			solver.solve(board);
+			for (int i=0; i<9; i++) {
+				for (int j=0; j<9; j++) {
+					field[i][j].setText(Integer.toString(board[i][j]));
+					field[i][j].setEditable(false);
+				}
+			}
 			solver.PrintBoard(board);
 		}
 	}
